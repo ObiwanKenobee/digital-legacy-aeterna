@@ -104,9 +104,9 @@ const WhySection = () => {
                   viewport={{ once: true }}
                   className="space-y-4"
                 >
-                  <div className="text-white/40 font-mono text-sm">> Loading philosophical dialogue...</div>
-                  <div className="text-white/90 font-mono text-sm">> Connecting to Leonardo da Vinci's neural patterns...</div>
-                  <div className="text-white/90 font-mono text-sm">> Connection established.</div>
+                  <div className="text-white/40 font-mono text-sm">{`>`} Loading philosophical dialogue...</div>
+                  <div className="text-white/90 font-mono text-sm">{`>`} Connecting to Leonardo da Vinci's neural patterns...</div>
+                  <div className="text-white/90 font-mono text-sm">{`>`} Connection established.</div>
                   
                   <div className="bg-white/5 p-4 rounded-lg border border-white/10">
                     <div className="text-drv-gold font-serif mb-2">Leonardo da Vinci:</div>
