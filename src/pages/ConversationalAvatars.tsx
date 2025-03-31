@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MessageSquare, Mic, User, Play } from 'lucide-react';
+import { MessageSquare, Mic, User, Play, Brain } from 'lucide-react';
 
 const ConversationalAvatars = () => {
   const [selectedTab, setSelectedTab] = useState('create');
