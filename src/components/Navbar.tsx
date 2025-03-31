@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Brain, User, Shield, BarChart3, Menu, X } from 'lucide-react';
+import { Brain, User, Shield, BarChart3, Menu, X, Settings } from 'lucide-react';
 
 const features = [
   { 
@@ -28,6 +28,12 @@ const features = [
     name: 'Monitoring', 
     path: '/performance-monitoring',
     icon: <BarChart3 className="w-5 h-5 text-drv-gold" />
+  },
+  { 
+    id: 'settings', 
+    name: 'Settings', 
+    path: '/settings',
+    icon: <Settings className="w-5 h-5 text-drv-cyan" />
   }
 ];
 

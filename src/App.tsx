@@ -10,6 +10,7 @@ import AILegacyVault from "./pages/AILegacyVault";
 import ConversationalAvatars from "./pages/ConversationalAvatars";
 import QuantumSecuredVault from "./pages/QuantumSecuredVault";
 import PerformanceMonitoring from "./pages/PerformanceMonitoring";
+import Settings from "./pages/Settings";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/conversational-avatars" element={<ConversationalAvatars />} />
           <Route path="/quantum-secured-vault" element={<QuantumSecuredVault />} />
           <Route path="/performance-monitoring" element={<PerformanceMonitoring />} />
+          <Route path="/settings" element={<Settings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
