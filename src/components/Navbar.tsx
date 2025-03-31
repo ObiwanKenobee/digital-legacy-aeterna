@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Brain, User, Shield, BarChart3, Menu, X, Settings } from 'lucide-react';
+import { Brain, User, Shield, BarChart3, Menu, X } from 'lucide-react';
 
 const features = [
   { 
@@ -28,12 +28,6 @@ const features = [
     name: 'Monitoring', 
     path: '/performance-monitoring',
     icon: <BarChart3 className="w-5 h-5 text-drv-gold" />
-  },
-  { 
-    id: 'settings', 
-    name: 'Settings', 
-    path: '/settings',
-    icon: <Settings className="w-5 h-5 text-drv-cyan" />
   }
 ];
 
@@ -91,6 +85,12 @@ const Navbar = () => {
                 <span>{feature.name}</span>
               </Link>
             ))}
+            <Link
+              to="/settings"
+              className={`px-3 py-2 rounded-lg bg-drv-purple/20 text-drv-purple hover:bg-drv-purple/30 transition-colors`}
+            >
+              Settings
+            </Link>
           </div>
           
           {/* Mobile menu button */}
@@ -132,6 +132,13 @@ const Navbar = () => {
                 <span>{feature.name}</span>
               </Link>
             ))}
+            <Link
+              to="/settings"
+              className={`flex items-center space-x-3 px-4 py-3 rounded-lg bg-drv-purple/20 text-drv-purple hover:bg-drv-purple/30 transition-colors`}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span>Settings</span>
+            </Link>
           </div>
         </motion.div>
       )}

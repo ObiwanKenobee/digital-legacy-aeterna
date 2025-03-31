@@ -78,7 +78,8 @@ export class SentryService {
     }
     
     Sentry.withScope(scope => {
-      scope.setLevel(Sentry.Severity.Error);
+      // Use string literal 'error' instead of Sentry.Severity.Error
+      scope.setLevel('error');
       scope.setContext("ai_generation", context);
       Sentry.captureException(error);
     });

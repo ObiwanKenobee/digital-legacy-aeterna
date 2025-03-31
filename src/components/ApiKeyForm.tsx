@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { ClaudeAIService } from '@/services/claude-service';
 import { ElevenLabsService } from '@/services/elevenlabs-service';
 import { SentryService } from '@/services/sentry-service';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface ApiKeys {
   claude?: string;
@@ -25,7 +26,9 @@ const ApiKeyForm = () => {
   });
   
   const [activeTab, setActiveTab] = useState("claude");
-
+  
+  const tabs = ["claude", "elevenlabs", "sentry"];
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setApiKeys(prev => ({ ...prev, [name]: value }));
@@ -53,6 +56,15 @@ const ApiKeyForm = () => {
     }
     
     toast.success("API keys saved successfully");
+  };
+  
+  const navigateTab = (direction: 'next' | 'prev') => {
+    const currentIndex = tabs.indexOf(activeTab);
+    if (direction === 'next' && currentIndex < tabs.length - 1) {
+      setActiveTab(tabs[currentIndex + 1]);
+    } else if (direction === 'prev' && currentIndex > 0) {
+      setActiveTab(tabs[currentIndex - 1]);
+    }
   };
 
   return (
@@ -146,6 +158,29 @@ const ApiKeyForm = () => {
             </div>
           </TabsContent>
         </Tabs>
+        
+        {/* Navigation buttons */}
+        <div className="flex justify-between mt-6">
+          <Button
+            variant="outline"
+            onClick={() => navigateTab('prev')}
+            disabled={activeTab === tabs[0]}
+            className="flex items-center"
+          >
+            <ChevronLeft className="w-4 h-4 mr-2" />
+            Previous
+          </Button>
+          
+          <Button
+            variant="outline"
+            onClick={() => navigateTab('next')}
+            disabled={activeTab === tabs[tabs.length - 1]}
+            className="flex items-center"
+          >
+            Next
+            <ChevronRight className="w-4 h-4 ml-2" />
+          </Button>
+        </div>
       </CardContent>
       <CardFooter>
         <Button className="w-full bg-gradient-to-r from-drv-purple to-drv-purple/80 hover:from-drv-purple/90 hover:to-drv-purple/70" onClick={saveApiKeys}>

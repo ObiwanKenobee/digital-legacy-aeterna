@@ -11,6 +11,7 @@ import ConversationalAvatars from "./pages/ConversationalAvatars";
 import QuantumSecuredVault from "./pages/QuantumSecuredVault";
 import PerformanceMonitoring from "./pages/PerformanceMonitoring";
 import Settings from "./pages/Settings";
+import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
 
@@ -21,14 +22,14 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/ai-legacy-vault" element={<AILegacyVault />} />
-          <Route path="/conversational-avatars" element={<ConversationalAvatars />} />
-          <Route path="/quantum-secured-vault" element={<QuantumSecuredVault />} />
-          <Route path="/performance-monitoring" element={<PerformanceMonitoring />} />
-          <Route path="/settings" element={<Settings />} />
+          <Route path="/" element={<Layout><Index /></Layout>} />
+          <Route path="/ai-legacy-vault" element={<Layout><AILegacyVault /></Layout>} />
+          <Route path="/conversational-avatars" element={<Layout><ConversationalAvatars /></Layout>} />
+          <Route path="/quantum-secured-vault" element={<Layout><QuantumSecuredVault /></Layout>} />
+          <Route path="/performance-monitoring" element={<Layout><PerformanceMonitoring /></Layout>} />
+          <Route path="/settings" element={<Layout><Settings /></Layout>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<Layout><NotFound /></Layout>} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
